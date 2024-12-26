@@ -60,3 +60,14 @@ exports.myAccount = async (req, res) => {
         res.send(err)
     }
 }
+
+
+// Get All Users
+exports.allUser=async(req,res)=>{
+    try{
+const alluser = await User.find()
+res.json({msg:"voici all",alluser})
+    }catch(err){
+        console.log(err)
+    }
+}

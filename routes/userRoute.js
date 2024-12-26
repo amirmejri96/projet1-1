@@ -1,5 +1,5 @@
 const express = require('express')
-const {createUser, registerUser, loginUser, myAccount} = require ('../controllers/userControllers')
+const {createUser, registerUser, loginUser, myAccount, allUser} = require ('../controllers/userControllers')
 const { registerValidation, validation, loginValidation } = require('../middleware/registerValidation')
 const { isUser } = require('../middleware/isUser')
 const userRoute = express.Router()
@@ -25,6 +25,10 @@ userRoute.post('/login', loginValidation, validation, loginUser)
         res.status(500).send(err);
     }
 });
+
+
+//http://localhost:5000/user/all
+userRoute.get('/all',allUser)
 
 
 
